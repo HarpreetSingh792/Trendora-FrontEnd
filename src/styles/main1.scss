@@ -1,0 +1,54 @@
+body::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+progress[value] {
+  margin: 0 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: var(--height);
+  border-radius: 50%;
+  background: rgb(238, 237, 237);
+}
+progress[value]::-webkit-progress-bar {
+  border-radius: 10px;
+  background: rgb(238, 237, 237);
+}
+progress[value]::-webkit-progress-value {
+  border-radius: 10px;
+  background: var(--color);
+}
+progress[value]::-moz-progress-bar {
+  border-radius: 10px;
+  background: var(--color);
+}
+
+.toss {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.4s;
+  height: 100%;
+
+  & > div:first-of-type {
+    background-image: url("../admin/assets/tails.png");
+    background-position: center;
+    background-size: contain;
+  }
+  & > div:last-of-type {
+    background-image: url("../admin/assets/head.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    transform: translateZ(-10px);
+    top: 0;
+    left: 0;
+  }
+}
