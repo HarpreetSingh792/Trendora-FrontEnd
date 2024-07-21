@@ -76,7 +76,7 @@ const Product = () => {
                                 }}>Add to wishlist <span className='text-xl font-black'><CiSquarePlus /></span></button>
                         </div>
 
-                        <img className="mt-8 w-1/2" src={"../../public/payments.png"} alt="payment-gateway-banner" />
+                        <img className="mt-8 w-1/2" src={"/payments.png"} alt="payment-gateway-banner" />
                     </div>
                 </div>
             </div>
