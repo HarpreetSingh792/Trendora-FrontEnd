@@ -62,7 +62,7 @@ const Product = () => {
                 <div className='min-[320px]:w-3/5 min-[320px]:h-64 md:h-full md:w-2/5 flex min-[320px]:flex-row-reverse md:flex-col justify-center items-center min-[320px]:gap-0 md:gap-4'>
 
                     <div className='mt-2  ml-2 rounded-sm lg:w-96 md:w-72 sm:w-60  min-[320px]:w-96  drop-shadow-lg flex items-center justify-center' >
-                        <img className="w-80 h-80 mix-blend-multiply " src={currentPhoto} alt={`${data?.name.substring(0, 15)}-photo`} loading='lazy' />
+                        <img className="min-[320px]:w-56 md:w-80 md:h-80 min-[320px]:h-56 mix-blend-multiply " src={currentPhoto} alt={`${data?.name.substring(0, 15)}-photo`} loading='lazy' />
                     </div>
                     <div className='h-full flex md:flex-row min-[320px]:flex-col w-full justify-between items-center md:p-4 md:flex-wrap gap-2'>
                         {
@@ -106,7 +106,7 @@ const Product = () => {
 
             {/* Description and Payment feature for Large and Medium Devices..... */}
 
-            <div className='md:hidden min-[320px]:block p-4 -mt-4'>
+            <div className='md:hidden min-[320px]:block p-4 mt-4'>
                 <p className='text-justify '><b className='text-xl font-semibold underline'>Description:</b> <br />{data?.description}</p>
                 <div className='w-full mt-4 flex flex-wrap justify-start items-center gap-8'>
                     <button className='flex  items-center justify-evenly gap-1 w-40 h-9 rounded-sm border-2 border-gray-500 p-1 text-xs font-bold cursor-pointer transition-all hover:bg-neutral-800 hover:border-neutral-800 hover:text-white' onClick={(e) => addToCartHandler(e, data)}>Add to cart  <span className='text-lg font-black'><BsCart3 /></span></button>

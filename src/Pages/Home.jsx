@@ -3,13 +3,15 @@ import ProductCatalog from '../components/ProductCatalog'
 import { useLatestProductQuery } from '../redux/api/productApi';
 import toast from 'react-hot-toast';
 import { Slider } from '../components/Slider';
+import Loading from './Loading';
 
 
 const Home = () => {
 
   const { data, isLoading, isError } = useLatestProductQuery();
+  
   if (isError) toast.error("Something went wrong ☹️")
-  return (
+  return isLoading?<Loading />:(
     <>
       <Slider images={["/banner.png","/banner1.png","/banner2.png"]} />
       <section className='mt-2'>
