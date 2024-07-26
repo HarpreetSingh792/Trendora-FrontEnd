@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FcGoogle } from "react-icons/fc";
-import { useNavigate } from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import toast from "react-hot-toast";
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase';
@@ -27,14 +27,14 @@ const SignIn = () => {
       })
       if ("data" in res) {
         toast.success(res.data.message);
-        navigate(window.location.origin)
-
+        navigate("/")
+      
       }
       else {
         toast.error(res.error.data.message);
 
       }
-
+      
     } catch (error) {
       toast.error("Sign-in Failed")
     }
