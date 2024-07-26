@@ -175,6 +175,8 @@ const Product = () => {
                                     ratings: addRatings,
                                 }
                             })
+                            setAddComment("")
+                            setAddRatings(1)
                             toast.success("Review Added")
                         }}>Add</button>
 
