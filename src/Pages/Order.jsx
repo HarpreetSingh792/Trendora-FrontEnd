@@ -15,6 +15,7 @@ const Order = () => {
     if (!isLoading) setMyOrders(data?.orders);
   }, [isLoading])
 
+  console.log(myOrders)
   if (isError) toast.error(error.data?.message)
 
   if (!myOrders.length >= 1) return <div className='flex flex-col items-center gap-4'> <div className='flex mt-12 justify-center text-4xl m-auto gap-4 items-center font-bold'>
@@ -30,7 +31,7 @@ const Order = () => {
             <h2 className='font-bold text-md text-gray-700'>Order {idx + 1}:</h2>
 
             {
-              item.orderItems.map((orderItem, orderIdx) => (
+              item.orderItems?.map((orderItem, orderIdx) => (
 
                 <div key={orderItem._id} className='p-4 w-full'>
                   <h4 className='font-semibold text-sm text-gray-500'>Item {orderIdx + 1}:</h4>

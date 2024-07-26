@@ -32,7 +32,28 @@ const CheckoutForm = () => {
 
         setIsProcessing(true)
 
-        const orderData = {...cartReducer,user:_id};
+        const orderData = {
+            "user":_id,
+            "discount": cartReducer.discount,
+            "tax": cartReducer.tax,
+            "subtotal": cartReducer.subtotal,
+            "shippingCharges":cartReducer.shippingCharges,
+            "total":cartReducer.total,
+            "orderItems": cartReducer?.orderItems?.map((item)=>({
+                "_id":item._id,
+                "quantity": item.quantity,
+                "name": item.name,
+                "description":item.description,
+                "photo": item.photos[0].url,
+                "price": item.price,
+                "category":item.category,
+                "stocks":item.stocks,
+                "ratings":item.ratings,
+                "numOfReviews":item.numOfReviews
+            })),
+            "shippingInfo": cartReducer.shippingInfo,
+            "wishlistProducts":cartReducer.wishlistProducts
+        };
 
         console.log(orderData)   
         const { paymentIntent, error } = await stripe.confirmPayment({
