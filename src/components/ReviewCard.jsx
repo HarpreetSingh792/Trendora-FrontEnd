@@ -49,7 +49,11 @@ const ReviewCard = ({ reviewId, name, photo, comment, rating, userId, pdId }) =>
 
       <div className='w-full'>
         {isEdit && <PopUp setIsOpen={setIsEdit} >
-          <form className='border-2 p-4 md:w-1/2 min-[320px]:w-11/12  h-fit bg-white rounded-xl flex flex-col justify-start items-start  overflow-auto' onClick={(e) => e.stopPropagation()}>
+          <form className='border-2 p-4 md:w-1/2 min-[320px]:w-11/12  h-fit bg-white rounded-xl flex flex-col justify-start items-start  overflow-auto' onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault()
+          }
+          }>
             <div className='flex flex-col  min-[320px]:justify-center md:justify-between items-center w-full p-4 gap-4'>
               <fieldset className='border-2 border-blue-500 w-full pl-4'>
                 <legend htmlFor="comment" className='text-xl text-blue-500 font-semibold'>Comment</legend>

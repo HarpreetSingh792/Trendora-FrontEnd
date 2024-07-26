@@ -44,7 +44,7 @@ const Product = () => {
     }, [id, setData, RelatedCategoryProduct])
 
     useEffect(() => {
-        if(data) setCurrentPhoto(data?.photos[0].url)
+        if (data) setCurrentPhoto(data?.photos[0].url)
     }, [data])
 
     const addToCartHandler = (e, data) => {
@@ -150,7 +150,11 @@ const Product = () => {
 
             {
                 userId && <div className='w-full mt-8'>
-                    <form className='border-2 p-4  h-fit bg-white  flex flex-col justify-start items-start  overflow-auto' onClick={(e) => e.stopPropagation()}>
+                    <form className='border-2 p-4  h-fit bg-white  flex flex-col justify-start items-start  overflow-auto' onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault()
+                    }
+                    }>
                         <div className='flex flex-col  min-[320px]:justify-center md:justify-between items-center w-full p-4 gap-4'>
                             <fieldset className='border-2 border-gray-700 w-full pl-4'>
                                 <legend htmlFor="comment" className='text-xl text-gray-700 font-semibold'>Comment</legend>
