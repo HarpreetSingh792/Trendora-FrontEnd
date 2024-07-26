@@ -142,7 +142,7 @@ const Product = () => {
             </div>
 
             {!productReviewLoading && <div className='mt-4 border-2 flex flex-col gap-4 w-full p-4'>
-                {productReview.review?.map(review => <ReviewCard key={review._id} pdId={review.product} reviewId={review._id} name={review.user.name} photo={review.user.photo} comment={review.comments} rating={review.ratings} userId={review.user._id} />)}
+                {productReview.review?.map(review => <ReviewCard key={review._id} pdId={review.product} reviewId={review._id} name={review?.user?.name} photo={review?.user?.photo} comment={review.comments} rating={review.ratings} userId={review?.user?._id} />)}
             </div>}
 
 
