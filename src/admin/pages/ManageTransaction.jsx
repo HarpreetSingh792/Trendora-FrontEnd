@@ -2,14 +2,13 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDeleterOrderMutation, useGetSingleOrderQuery, useProcessOrderMutation } from "../../redux/api/orderApi"
 import { IoMdTrash } from "react-icons/io";
-import { server } from '../../redux/store';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
 const ManageTransaction = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const { data, isLoading, isError, error } = useGetSingleOrderQuery(id);
+    const { data,isError } = useGetSingleOrderQuery(id);
     const [updateStatus] = useProcessOrderMutation();
     const [deleteOrder] = useDeleterOrderMutation();
     const { _id } = useSelector(state => state.userReducer.user)
@@ -38,8 +37,8 @@ const ManageTransaction = () => {
 
                     {
                         data?.order.orderItems.map((item) => (
-                            <div className='border-2 w-full min-h-12 max-h-full flex justify-between  items-center p-2 gap-4' key={item._id}>
-                                <img className='w-20 h-20 border-2' src={`${server}/${item.photo}`} alt={`${item.name}-img`} />
+                            <div className='border-2 w-full min-h-12 max-h-full flex justify-between  items-center p-2 gap-4 mt-4' key={item._id}>
+                                <img className='w-20 h-20 border-2' src={item.photo} alt={`${item.name}-img`} />
                                 <p className='min-[320px]:text-[10px] md:text-base font-semibold w-3/5 '>{item.name}</p>
                                 <p className='min-[320px]:text-[10px] md:text-base font-semibold w-1/5'>{item.price} x {item.quantity} = {item.price * item.quantity}</p>
                             </div>

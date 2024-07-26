@@ -51,7 +51,7 @@ const Cart = () => {
       <div className='min-[320px]:order-last md:order-first min-[320px]:border-2 md:shadow-none md:w-3/4  min-[320px]:w-full  flex flex-col items-center overflow-auto p-8 '>
         {
           cartReducer?.orderItems.map(cart => (
-            <CartCard key={cart?._id} _id={cart?._id} photo={cart?.photo} name={cart?.name} quantity={cart?.quantity} description={cart?.description} stocks={cart?.stocks} price={cart?.price} addItemToCart={addItemToCart} removeItemFromCart={removeItemFromCart} />
+            <CartCard key={cart?._id} _id={cart?._id} photo={cart.photos[0].url} name={cart?.name} quantity={cart?.quantity} description={cart?.description} stocks={cart?.stocks} price={cart?.price} addItemToCart={addItemToCart} removeItemFromCart={removeItemFromCart} />
           ))
         }
       </div>

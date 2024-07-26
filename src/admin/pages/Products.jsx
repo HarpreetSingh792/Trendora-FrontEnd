@@ -40,7 +40,7 @@ const Products = () => {
     const [rowData, setRowData] = useState([]);
     if (isError) toast.error(error.data.message);
     useEffect(() => {
-        if (data) setRowData(data.products.map((i) => ({ photo: <img src={`${server}/${i.photo}`} width={96} height={96} />, name: i.name, price: i.price, stock: i.stocks, action: <Link to={`/admin/products/${i._id}`}>Manage</Link> })))
+        if (data) setRowData(data.products.map((i) => ({ photo: <img className='m-auto' src={`${i.photos[0].url}`} width={96} height={96} />, name: i.name, price: i.price, stock: i.stocks, action: <Link to={`/admin/products/${i._id}`}>Manage</Link> })))
     }, [data])
     return (
         <Layout>

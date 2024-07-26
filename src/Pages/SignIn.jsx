@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FcGoogle } from "react-icons/fc";
+import {useNavigate} from "react-router-dom"
 import toast from "react-hot-toast";
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase';
@@ -7,6 +8,7 @@ import { useLoginMutation } from "../redux/api/userApi"
 
 const SignIn = () => {
 
+  const navigate = useNavigate();
   const date = new Date();
   const [login] = useLoginMutation();
   const [gender, setGender] = useState("")
@@ -25,14 +27,13 @@ const SignIn = () => {
       })
       if ("data" in res) {
         toast.success(res.data.message);
+        navigate("/")
       }
       else {
         toast.error(res.error.data.message);
 
       }
       
-      console.log(user);
-
     } catch (error) {
       toast.error("Sign-in Failed")
     }

@@ -23,6 +23,8 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const [isProcessing, setIsProcessing] = useState(false);
+
+
     const submitHandler = async (e) => {
         e.preventDefault();
 
@@ -32,6 +34,7 @@ const CheckoutForm = () => {
 
         const orderData = {...cartReducer,user:_id};
 
+        console.log(orderData)   
         const { paymentIntent, error } = await stripe.confirmPayment({
             //`Elements` instance that was used to create the Payment Element
             elements,
@@ -48,7 +51,6 @@ const CheckoutForm = () => {
         if ([paymentIntent.status === "succeeded"]) {
             const res = await createOrder(orderData);
             dispatch(resetCart());
-            console.log(res)
             toast.success("Order Placed Successfully")
             navigate("/orders")
         }

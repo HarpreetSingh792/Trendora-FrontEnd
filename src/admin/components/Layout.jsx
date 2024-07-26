@@ -84,9 +84,7 @@ const Layout = ({ children }) => {
     return (
         <div className="flex justify-between items-start ">
             <aside className=" h-screen  z-50 bg-white overflow-auto w-1/5 lg:block min-[320px]:hidden ">
-                <div className="heading-sec">
-                    <h2 className='text-blue-500 text-2xl font-bold'>Logo.</h2>
-                </div>
+               
                 <div className="mt-4 px-4 mb-12">
                     {
                         data.map((data) => {

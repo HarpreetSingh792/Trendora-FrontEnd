@@ -109,12 +109,12 @@ export const Navbar = ({ user }) => {
                 Analytics
               </span>
             </button>}
-            <button className='mt-3 w-full flex justify-center items-center gap-2 rounded-md hover:bg-blue-200/10' onClick={() => clickOnDialogHandler("/orders")}>
+            {isLoggedIn && <button className='mt-3 w-full flex justify-center items-center gap-2 rounded-md hover:bg-blue-200/10' onClick={() => clickOnDialogHandler("/orders")}>
               <span className="flex justify-start items-center gap-2 w-1/2 ">
                 <GrDeliver />
                 Orders
               </span>
-            </button>
+            </button>}
             {!isLoggedIn ? <button className='mt-3 w-full  flex justify-center items-center gap-2 rounded-md hover:bg-blue-200/10' onClick={() => clickOnDialogHandler("/sign-in")} >
               <span className="flex justify-start items-center gap-2 w-1/2 ">
                 <CiLogin />
@@ -192,12 +192,12 @@ export const Navbar = ({ user }) => {
           </div>
         }
 
-        <button className='h-8 w-full flex justify-center items-center gap-2 pl-4 rounded-md hover:bg-blue-200/10' onClick={() => clickOnDialogHandler("/orders")}>
+        {isLoggedIn && <button className='h-8 w-full flex justify-center items-center gap-2 pl-4 rounded-md hover:bg-blue-200/10' onClick={() => clickOnDialogHandler("/orders")}>
           <span className="flex justify-start items-center gap-2 w-1/2 min-[320px]:text-lg md:text-xl ">
             <GrDeliver />
             Orders
           </span>
-        </button>
+        </button>}
 
         <button className='h-8 w-full flex justify-center items-center gap-2 pl-4 rounded-md hover:bg-blue-200/10' onClick={() => clickOnDialogHandler("/wishlist")}>
           <span className="flex justify-start items-center gap-2 w-1/2 min-[320px]:text-lg md:text-xl ">

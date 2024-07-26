@@ -2,7 +2,6 @@ import React from "react"
 import { useNavigate } from "react-router-dom";
 import { FaMinus } from "react-icons/fa6";
 import { MdAdd } from "react-icons/md";
-import { server } from '../redux/store';
 
 
 
@@ -12,7 +11,7 @@ export const CartCard = ({ _id, photo, name, quantity, description, stocks, pric
   
     return (
       <div className='bg-white w-full border-2 rounded-md flex md:flex-row min-[320px]:flex-col justify-evenly items-center p-4 gap-4 mb-4'>
-        <img className='w-16 cursor-pointer' src={`${server}/${photo}`} alt="" onClick={() => navigate(`/pd/${_id}`)} />
+        <img className='w-16 cursor-pointer' src={photo} alt="" onClick={() => navigate(`/pd/${_id}`)} />
         <div className='grid w-11/12 cursor-pointer' onClick={() => navigate(`/pd/${_id}`)}>
           <h4 className='font-bold'>{name.substr(0, 50)}...</h4>
           <p className='text-gray-400 text-sm'>{description.substr(0, 50)}...</p>

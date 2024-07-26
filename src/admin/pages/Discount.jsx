@@ -87,7 +87,7 @@ const Discount = () => {
                     </div>
                 }
             </div>
-            {openToCreate && <PopUp setIsOpen={setIsOpenToCreate}>
+            {openToCreate && <PopUp isAdmin={true} setIsOpen={setIsOpenToCreate}>
                 <form className='border-2 p-4 md:w-3/5 min-[320px]:w-11/12 md:h-56 h-fit bg-white rounded-xl flex flex-col justify-start items-start  overflow-auto' onClick={(e) => e.stopPropagation()}>
                     <div className='flex min-[320px]:flex-col md:flex-row min-[320px]:justify-center md:justify-between items-center w-full p-4 gap-4'>
                         <fieldset className='border-2 border-blue-500 min-[320px]:w-full md:w-1/2 pl-4'>
